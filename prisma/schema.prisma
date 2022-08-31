@@ -15,6 +15,7 @@ model Cliente {
   nome          String    
   cep           String     
   email         String     @unique
+  atendimento Atendimento[]
 
   @@map("cliente")
 }
@@ -23,7 +24,11 @@ model Atendimento {
   id        Int      @id @default(autoincrement())
   dataVenda DateTime @default(now()) 
   dataTroca DateTime @updatedAt
-  email         String     @unique
+  cliente Cliente @relation(fields: [clienteId], references: [id])
+  clienteId Int
+  produto Produto @relation(fields: [produtoId], references: [id])
+  produtoId Int
+ 
 
   @@map("atendimento")
 }
@@ -34,6 +39,7 @@ model Produto {
   vestEsporte   String 
   vestSocial    String
   preco         Decimal
+  atendimento Atendimento[]
   @@map("produto")
 }
 

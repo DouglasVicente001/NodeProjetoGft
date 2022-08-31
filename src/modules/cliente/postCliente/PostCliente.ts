@@ -21,6 +21,7 @@ export class PostCliente {
                 email,
                 cep,
                 nome,
+                
             }
         })
         return cliente;

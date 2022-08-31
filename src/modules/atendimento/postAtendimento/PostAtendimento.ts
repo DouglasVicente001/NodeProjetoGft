@@ -6,18 +6,18 @@ export class PostAtendimento {
     async execute({ post }: IPostAtendimentosDTO): Promise<void> {
         for (let index = 0; index < post.length; index++) {
 
-            const etiquetaExistente = await prisma.atendimento.findUnique({
+            const clienteExistente = await prisma.atendimento.findUnique({
                 where: {
-                    email: post[index].email,
+                    id: post[index].clienteId,
                 },
             });
-            if (!etiquetaExistente) {
-                throw new AppError(`Um dos emails ja cadastrados.`, 404)
+            if (clienteExistente) {
+                throw new AppError(`Um dos id's ja cadastrado.`, 404)
             }
-            
-        }
+
         await prisma.atendimento.createMany({
             data: post
         });
     }
+}
 }

@@ -1,5 +1,5 @@
 export interface IPostAtendimentosDTO {
     post: [{  
-        email: string
+        clienteId: number
     }]
 }

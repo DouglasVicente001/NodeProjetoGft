@@ -14,9 +14,8 @@ CREATE TABLE `atendimento` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `dataVenda` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `dataTroca` DATETIME(3) NOT NULL,
-    `email` VARCHAR(191) NOT NULL,
+    `clienteId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `atendimento_email_key`(`email`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -42,3 +41,6 @@ CREATE TABLE `usuarios` (
     UNIQUE INDEX `usuarios_email_key`(`email`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `atendimento` ADD CONSTRAINT `atendimento_clienteId_fkey` FOREIGN KEY (`clienteId`) REFERENCES `cliente`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
