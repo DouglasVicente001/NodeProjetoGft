@@ -15,6 +15,7 @@ CREATE TABLE `atendimento` (
     `dataVenda` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `dataTroca` DATETIME(3) NOT NULL,
     `clienteId` INTEGER NOT NULL,
+    `produtoId` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -44,3 +45,6 @@ CREATE TABLE `usuarios` (
 
 -- AddForeignKey
 ALTER TABLE `atendimento` ADD CONSTRAINT `atendimento_clienteId_fkey` FOREIGN KEY (`clienteId`) REFERENCES `cliente`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `atendimento` ADD CONSTRAINT `atendimento_produtoId_fkey` FOREIGN KEY (`produtoId`) REFERENCES `produto`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
