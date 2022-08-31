@@ -12,7 +12,8 @@ CREATE TABLE `cliente` (
 -- CreateTable
 CREATE TABLE `atendimento` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `cep` VARCHAR(191) NOT NULL,
+    `dataVenda` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `dataTroca` DATETIME(3) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
 
     UNIQUE INDEX `atendimento_email_key`(`email`),

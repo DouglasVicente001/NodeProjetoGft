@@ -15,15 +15,19 @@ model Cliente {
   nome          String    
   cep           String     
   email         String     @unique
+
   @@map("cliente")
 }
 
 model Atendimento {
-  id            Int       @id @default(autoincrement())
-  cep           String     
+  id        Int      @id @default(autoincrement())
+  dataVenda DateTime @default(now()) 
+  dataTroca DateTime @updatedAt
   email         String     @unique
+
   @@map("atendimento")
 }
+
 model Produto {
   id            Int       @id @default(autoincrement())
   vestCasual    String
@@ -34,8 +38,8 @@ model Produto {
 }
 
 model Usuario {
-  id String @id @default(uuid())
-  email String @unique
+  id    String     @id @default(uuid())
+  email String     @unique
   senha String
   criado_em DateTime @default(now())
   modificado_em DateTime @updatedAt

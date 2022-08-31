@@ -1,12 +1,13 @@
-// import { Router } from "express";
+import { Router } from "express";
+import { PostAtendimentoController } from "../modules/atendimento/postAtendimento/PostAtendimentoController";
 // import { DeletePalavrasPorIdController } from "../modules/palavras/deletePalavras/DeletePalavrasPorIdController";
 // import { GetAllPalavrasController } from "../modules/palavras/getPalavras/GetAllPalavrasController";
 // import { GetPalavrasPorNomeController } from "../modules/palavras/getPalavras/GetPalavrasPorNomeController";
 // import { PostPalavrasController } from "../modules/palavras/postPalavras/PostPalavrasController";
 // import { UpdatePalavraController } from "../modules/palavras/updatePalavras/UpdatePalavraController";
-// import { auth } from './../middlewares/auth'
+import { auth } from './../middlewares/auth'
 
-// const postPalavrasController = new PostPalavrasController();
+const postAtendimentoController = new PostAtendimentoController();
 // const getAllPalavrasController = new GetAllPalavrasController();
 // const getPalavrasPorNomeController = new GetPalavrasPorNomeController();
 // const deletePalavrasPorIdController = new DeletePalavrasPorIdController();
@@ -14,16 +15,16 @@
 
 
 
-// const palavrasRoutes = Router();
+const atendimentoRoutes = Router();
 
 // palavrasRoutes.get('/', getAllPalavrasController.handle);
 // palavrasRoutes.get('/nome', getPalavrasPorNomeController.handle);
 
-// palavrasRoutes.use(auth);
+atendimentoRoutes.use(auth);
 
-// palavrasRoutes.post('/', postPalavrasController.handle);
+atendimentoRoutes.post('/', postAtendimentoController.handle);
 // palavrasRoutes.delete('/', deletePalavrasPorIdController.handle);
 // palavrasRoutes.patch('/', updatePalavraController.handle);
 
 
-// export { palavrasRoutes }
+export { atendimentoRoutes }
