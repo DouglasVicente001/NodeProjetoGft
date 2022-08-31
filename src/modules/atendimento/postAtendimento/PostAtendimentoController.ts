@@ -4,11 +4,11 @@ import { Request, Response } from "express";
 
 export class PostAtendimentoController {
     async handle(req: Request, res: Response) {
-        const { email } = req.body;
+        const { post } = req.body;
 
         const postAtendimento = new PostAtendimento();
 
-        const result = await postAtendimento.execute({ email })
+        const result = await postAtendimento.execute({ post })
 
         return res.status(201).json(result);
     }

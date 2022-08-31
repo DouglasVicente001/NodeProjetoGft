@@ -1,3 +1,5 @@
 export interface IPostAtendimentosDTO {
-    email: string
+    post: [{  
+        email: string
+    }]
 }
