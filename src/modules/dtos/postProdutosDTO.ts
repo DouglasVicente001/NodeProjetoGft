@@ -3,4 +3,5 @@ export interface IPostProdutosDTO {
     vestEsporte:   string ,
     vestSocial:    string,
     preco:         number
+
 }
